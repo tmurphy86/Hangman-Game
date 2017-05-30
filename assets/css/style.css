@@ -1,21 +1,28 @@
 .green{
 	background: limegreen;
 	color: white;
+  height: 4em;
 }
-
-.bg {
+.sides{
+    opacity: 0.5;
+    height: 40em;
+    width:100%;
+}
+/*.bg {
   background: url('../images/jumbotronspace.jpg') no-repeat center center;
   position: fixed;
   width: 100%;
   height: 350px; /*same height as jumbotron */
-  top:0;
+ /* top:0;
   left:0;
   z-index: -1;
-}
+}*/
 
 .jumbotron {
+  background: url('../images/jumbotronspace.jpg') no-repeat;
+  background-size: 100%;
   height: 350px;
   color: white;
   text-shadow: #444 0 1px 1px;
-  background:transparent;
+  margin-bottom: 1px; 
 }

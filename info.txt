@@ -1,0 +1,9 @@
+Questions two conditions don't work with &&
+variables inside functions global vs function only
+
+
+Still need
+-condition to check if any _ are blank for winning and kick off Score function
+-condition to say you haven't started the game yet
+-clear a field after on click
+-after failure remove guess functionality
