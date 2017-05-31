@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script src="assets/javascript/game.js"></script>
 
@@ -43,23 +43,25 @@
   <div class="col-sm-4">
   	<h1>Alien on the rope</h1>
     <div id="hang"></div>
-    <div id="wordDash">Please Press Start to begin</div>
     <img id="hangPix" src="http://img.photobucket.com/albums/v60/PandoraSD/Hangman/G1.gif"/>
-    <button id="restart" name="restart" type="button">Restart</button>
+    <button id="restart" type="button" onclick="myStart()">Restart</button>
     <div id="score">Total Number of Wins: 0</div>
 
 
   </div>
 
   <div class="col-sm-4">
-	<h1>Take a guess and save the Alien from extinction</h1>
+	<h1>
+		Take a guess and save the Alien from extinction
+	</h1>
+
 	<div id="guess"></div>
 	<input type="text" id="input1"/>
 	<button onclick="myJsFunction()">Guess</button>
-  <div>You clearly don't like aliens</div>
-  <div id="missed"></div>
-  <div id="left">Total Guesses Left: 6</div>
- 
+	<div id="wordDash">Please Press Start to begin</div>
+  	<div>You clearly don't like aliens</div>
+  	<div id="missed"></div>
+  	<div id="left">Total Guesses Left: 6</div>
   </div>
 
   <div class="col-sm-2 container"><img src="./assets/images/launchrocket.jpg" class="sides" style="width: 100%;"></div>
