@@ -9,6 +9,7 @@ var globeAnswer = [ ];    //answers right so far
 var guessLeft;               //number of guess left
 var scoreTotals = 0;           //total number of wins
 var letters = "abcdefghijklmnopqrstuvwxyz";
+var globeWin = 0;
 
 //images for hanging
 var pix = new Array();
@@ -34,14 +35,15 @@ document.onkeydown=function(){
 function myStart(){
     console.log("Start Page")
 
-    // Setting variable
-    // var life = 7;
+    // Setting variable for a new game
     guessLeft = 7;        // Lives
     arrayGuess=[];
+    globeWin = 0;
 
 
     //cleaning old html from a refresh
     document.getElementById("missed").innerHTML = arrayGuess;
+    document.getElementById("left").innerHTML =  "Total Guesses Left: 6";
 
     //word for hanging the space man
     var words = ["monitor", "program", "application", "keyboard", "javascript", "gaming", "network"];
@@ -52,22 +54,15 @@ function myStart(){
     //storing selected word into global var
     globeWord=word;
 
-    //selecting a word and then breaking it into an array
-    var letterWords = Array.from(word);
-
-    console.log(letters);
-    console.log(words);
-    console.log(word);
-    console.log(letterWords);
-
     //Setting up the blank array for the length of the word
     var answerWord = [];
     for (var i = 0; i < word.length; i++) {
             answerWord[i]="_";
         }
-    console.log(answerWord);
+
     //global var
     globeAnswer = answerWord;
+    console.log(globeWord);
 
     document.getElementById("wordDash").innerHTML = globeAnswer;
     document.getElementById("hangPix").src = pix[6];
@@ -77,8 +72,6 @@ function myStart(){
 
 //Input value from input field of html
 function myJsFunction(){
-    console.log("input function runnning");
-
     var text = document.getElementById('input1').value;
 
     //Clear value in input
@@ -86,12 +79,9 @@ function myJsFunction(){
 
       // Converts the user's answer to lowercase
     var textLower = text.toLowerCase();
-    console.log(textLower);
-    console.log(letters.includes(textLower));
 
     //checks value to ensure it is a valid input
     if(textLower.length === 1 && letters.includes(textLower)===true){
-        console.log('OK letter input');
         checkGuess(textLower);
 
      } else {
@@ -99,16 +89,16 @@ function myJsFunction(){
             }
     }
 
+
 function checkGuess(letterPass){
   if (typeof globeWord === 'undefined') {
         myStart();
      }
-    console.log(letterPass + globeWord);
+
     var correct = 0;
     for (var i = 0; i < globeWord.length; i++) {
      
       if (globeWord[i] === letterPass) {
-        console.log(i);
         correctLetter(letterPass, i);
         correct--;
 
@@ -117,7 +107,6 @@ function checkGuess(letterPass){
 
       } else {
         correct++;
-        console.log(correct);
         }
       }
 }
@@ -126,34 +115,34 @@ function checkGuess(letterPass){
 function correctLetter(correct, location){
   globeAnswer[location] = correct;
   document.getElementById("wordDash").innerHTML = globeAnswer;
+  document.getElementById("mock").innerHTML = "You may save the galaxy yet";
+  globeWin++;
 
-  //checks for winning status
-  var winCheck = $.inArray(globeAnswer,"_", true);
-  console.log(winCheck);
-  if (winCheck === -1){
+  
+  if (globeWin === globeWord.length){
+    document.getElementById("mock").innerHTML = "You love extraterrestrials!";
     document.getElementById("left").innerHTML = "Winner!!!";
-  }
+    score();
+    forceRestart();
+   }
 }  
 
-
 function wrongLetter(wrong){
-  console.log("A wrong letter was guessed and has kicked off function wrongLetter")
   arrayGuess.push(wrong);
-  console.log(arrayGuess);
   document.getElementById("missed").innerHTML = arrayGuess;
+  document.getElementById("mock").innerHTML = "You clearly don't like aliens";
   lives();
 }
 
 
 function lives(){
   guessLeft--;
-  console.log(guessLeft);
 
   if (guessLeft=== 1) {
   var leftStr = "Total Guesses Left: ZERO! You have failed your mission";
   document.getElementById("hangPix").src = pix[(guessLeft-1)];
-  console.log(leftStr);
   document.getElementById("left").innerHTML = leftStr;
+  forceRestart();
   
   } else {
   var leftStr = "Total Guesses Left: " + (guessLeft-1);
@@ -167,7 +156,11 @@ function lives(){
 function score(){
   scoreTotals++;
   var scoreStr = "Total Number of Wins: " + scoreTotals;
-  console.log(scoreStr);
   document.getElementById("score").innerHTML = scoreStr;
 }
 
+function forceRestart(){
+      document.getElementById('input1').style.visibility = "hidden"; 
+      document.getElementById('guess').style.visibility = "hidden"; 
+  
+}

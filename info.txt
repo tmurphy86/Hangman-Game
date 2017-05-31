@@ -7,3 +7,19 @@ Still need
 -condition to say you haven't started the game yet
 -clear a field after on click
 -after failure remove guess functionality
+
+
+//checks for winning status
+  // var winCheck = $.inArray(globeAnswer,"_", true);
+  // var winCheck = '_'.indexOf('globeAnswer');
+
+
+      
+    //  var contain = letterPass.indexOf(globeWord);
+    //  console.log(contain);
+
+    //  if(contain === -1){
+    //   wrongLetter(letterPass);
+    // } else {
+    //   correctLetter(letterPass, contain);
+    // }

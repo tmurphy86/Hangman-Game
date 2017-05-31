@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>JavaScript Content!</title>
+  <title>Hangalien</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -28,54 +28,53 @@
 
 <body>
 
-<div class="bg"></div>
-  <div class="jumbotron">
+<!-- Title of the page w/ image -->
+<div class="jumbotron">
     <h1 class="">HangAlien</h1> 
     <p>Saving Aliens 1 @ a time from the rope</p> 
-  </div>
+</div>
+
+<!-- Start button -->
   <button class= "btn-block btn-group-lg green" onclick="myStart()">Click Here To Start</button>
-  <!--  <img id="start" src="./assets/images/start.png" alt="Click to start" class="img-thumbnail" onclick="myStart()"  -->
-</div>
 
+
+<!-- Side bar left -->
 <div class="row">
-	<div class="col-sm-2 container"><img src="./assets/images/launchrocket.jpg" class="sides" style="width: 100%;"></div>
+	<div class="col-sm-2 container"><img src="./assets/images/launchrocket.jpg" class="sides"></div>
 
+
+<!-- Left column -->
   <div class="col-sm-4">
-  	<h1>Alien on the rope</h1>
-    <div id="hang"></div>
-    <img id="hangPix" src="http://img.photobucket.com/albums/v60/PandoraSD/Hangman/G1.gif"/>
-    <button id="restart" type="button" onclick="myStart()">Restart</button>
-    <div id="score">Total Number of Wins: 0</div>
-
-
+  	<h1 class="text-center">ALIEN ON TRIAL</h1>
+    <img id="hangPix" class="img-responsive center-block" src="http://img.photobucket.com/albums/v60/PandoraSD/Hangman/G1.gif"/>
+      <h4 class="text-center" id="wordDash">Please Press Start to begin</h4>
+    <button class="center-block" id="restart" type="button" onclick="myStart()">Restart Game</button>
+    <h3 class="text-center" id="score">Total Number of Wins: 0</h3>
   </div>
 
+
+
+<!-- Right column -->
   <div class="col-sm-4">
-	<h1>
-		Take a guess and save the Alien from extinction
-	</h1>
 
-	<div id="guess"></div>
-	<input type="text" id="input1"/>
-	<button onclick="myJsFunction()">Guess</button>
-	<div id="wordDash">Please Press Start to begin</div>
-  	<div>You clearly don't like aliens</div>
-  	<div id="missed"></div>
-  	<div id="left">Total Guesses Left: 6</div>
+	   <h4>
+	   	Take a guess and save the Alien from extinction
+	   </h4>
+
+
+	  <!--  <div id="guess"></div> -->
+	   <input type="text" id="input1"/>
+	    <button id="guess" onclick="myJsFunction()">Guess</button>
+
+  	<h4 id="mock">Will you save the extraterrestrial</h4>
+  	<h3 id="missed"></h3>
+  	<h3 id="left"></h3>
   </div>
 
-  <div class="col-sm-2 container"><img src="./assets/images/launchrocket.jpg" class="sides" style="width: 100%;"></div>
+
+  <!-- Side bar right -->
+  <div class="col-sm-2 container"><img src="./assets/images/launchrocket.jpg" class="sides"></div>
 </div>
-
-<div class="progress" id="myProgress">
-  <div class="progress-bar progress-bar-striped active" role="progressbar" id="myBar">
-    40%
-  </div>
-</div>
-
-
-
-
 
 
 </body>
